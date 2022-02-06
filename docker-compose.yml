@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  test:
+  back:
     build: .
     image: node-app
     depends_on:
@@ -19,7 +19,7 @@ services:
     image: react-server
     stdin_open: true
     depends_on:
-      - test
+      - back
     ports:
       - "${WEB_PORT}:3014"
     networks:
@@ -40,7 +40,7 @@ services:
       MONGO_INITDB_DATABASE: "${MONGO_INITDB_ROOT_DATABASE_NAME}"
     volumes:
       - ./mongo/init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
-      - ./mongo-volume:/data/db
+      - mongo-volume:/data/db
 
 networks:
   mern-network:
