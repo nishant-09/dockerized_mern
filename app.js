@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 const port = 5014;
 
 app.get("/", (req, res) => {
-  res.json("Yupp its working");
+  res.json("Yes this is backend message");
 });
 
 new Mongo();

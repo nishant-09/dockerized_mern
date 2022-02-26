@@ -14,7 +14,7 @@ class App extends Component {
   }
 
   getData = async () => {
-    const response = await fetch("http://localhost:5014/", {
+    const response = await fetch("http://localhost/api", {
       method: "get"
     });
     const message = await response.json();
